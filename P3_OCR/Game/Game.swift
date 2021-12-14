@@ -33,6 +33,12 @@ class Game {
     /// Create Player 2
     private var playerTwo: Player
     
+    private var roundNumber = 0
+    
+    private var isGameOver: Bool {
+        playerOne.isEliminated || playerTwo.isEliminated
+    }
+    
    
     
     /// Function game's rules
@@ -75,11 +81,14 @@ class Game {
         playerTwo.chooseTeam()
     }
     
+    
+    
     /// First step / loop switch the players between turns
     private func play() {
         print("\nGet your army ready, the ennemy is approaching, it's BATTLE TIME ⚔️⚔️⚔️⚔️⚔️ !!!!!!\n")
         
-        while playerOne.characters.count != 0 || playerTwo.characters.count != 0 {
+        while !isGameOver {
+            roundNumber += 1
             print(
                 "\(playerOne.name) choose one of his characters, then an opponent character to attack ⚔️, or an ally to heal 🩹 with the 🧙‍♂️ Wizzard."
             )
@@ -93,27 +102,31 @@ class Game {
                 characters: playerTwo.characters, selectedCharacter: ownCharacter)
             ownCharacter.attack(target: opponentCharacter)
             
-            playerTwo.checkTeamLife()
+            
             if checkWinner() == true {
                 break
             }
             swap(&playerOne, &playerTwo)
             
-            print("The battle is over")
-            print("Well Done 🏆 !")
+            print("The round is over, let's go to the next round")
         }
     }
     
     /// Function checks if a Player wins (if a player don't have any more character in his Array, he lost)
     private func checkWinner() -> Bool {
-        if playerTwo.characters.isEmpty {
+        print()
+        print("-----------------------------END------------------------------------")
+        print("\nRound Number: \(roundNumber)")
+        playerOne.teamView()
+        playerTwo.teamView()
+        if playerTwo.isEliminated {
             print("All Player's 2 characters are dead ☠️")
             print("PLAYER 1 WINS 🏆")
             
             return true
         }
         
-        if playerOne.characters.isEmpty {
+        if playerOne.isEliminated {
             print("All Player's 1 characters are dead ☠️")
             print("PLAYER 2 WINS 🏆")
             
@@ -125,7 +138,7 @@ class Game {
     
     /// Function creates a random number. If the players are lucky, his character open the mystery with the function openChest()
     func checkChest(selectedCharacter: Character) {
-        let randomNumber = Int(arc4random_uniform(10))
+        let randomNumber = Int.random(in: 0...9)
         
         if randomNumber == 0 {
             let newChest = Chest(selectedCharacter: selectedCharacter)

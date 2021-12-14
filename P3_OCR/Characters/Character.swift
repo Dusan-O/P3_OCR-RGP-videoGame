@@ -16,6 +16,9 @@ class Character {
     var name: String
     let typeName: String
     var weapon: Weapon?
+    var isDead: Bool {
+        life <= 0
+    }
     
     init(name: String, damage: Int, life: Int, typeName: String) {
         self.name = name
@@ -36,7 +39,7 @@ class Character {
     ///Function search if the name of the character is a single
     func validateCharacterName(arrayOfCharacters: [Character]) -> Bool {
         for character in arrayOfCharacters {
-            if character.name == name {
+            if character.name.lowercased().trimmingCharacters(in: .whitespaces) == name.lowercased().trimmingCharacters(in: .whitespaces) {
                 print("You made a mistake ❌ , choose another one")
                 return false
             }
@@ -62,6 +65,10 @@ class Character {
         } else {
             target.life = target.life - damage
             print("\(target.name) loose \(damage)LP")
+        }
+        
+        if target.isDead {
+            print("\(target.name) don't have any Life Points... He's dead ☠️ !")
         }
     }
 }

@@ -12,6 +12,13 @@ class Player {
     
     // MARK: - INTERNAL
     
+    
+    
+    var isEliminated: Bool {
+        !characters.contains { character in
+            !character.isDead
+        }
+    }
 
     
     /// Each player have name, "Player 1" and "Player 2"
@@ -27,7 +34,7 @@ class Player {
     
     /// Function shows the team of each player (name, typename, life and damages)
     func teamView() {
-        print("This is your team :")
+        print("\n\(name)'s team:")
         
         for character in characters {
             print(
@@ -63,18 +70,18 @@ class Player {
         }
         
         for character in tmpCharacters {
-            print("Enter \(addition) for \(character.name), \(character.typeName)")
+            print("Enter \(addition) for \(character.name), \(character.typeName) \(character.isDead ? "☠️" : "👍")")
             addition += 1
         }
         
         while characterSelected == false {
             if let readline = readLine() {
                 if let choice = Int(readline) {
-                    if choice == 1 || choice == 2 || choice == 3 {
+                    if tmpCharacters.indices.contains(choice - 1) {
                         personage = tmpCharacters[choice - 1]
                         characterSelected = true
                     } else {
-                        print("You must choose an opponent character between the numbers 1, 2 and 3 ❌ ")
+                        print("You must choose an opponent character between the numbers 1 and the remaining alive characters ❌ ")
                     }
                 }
             }
@@ -83,23 +90,7 @@ class Player {
         return personage
     }
     
-    /// Function checks if a character is dead and remove it from the Array if he is dead
-    func checkTeamLife() {
-        var incremention = 0
-        
-        for _ in characters {
-            if characters[incremention].life <= 0 {
-                print("\(characters[incremention].name) don't have any Life Points... He's dead ☠️ !")
-                characters.remove(at: incremention)
-                
-                break
-            } else {
-                print("")
-            }
-            
-            incremention += 1
-        }
-    }
+    
     
     
     
