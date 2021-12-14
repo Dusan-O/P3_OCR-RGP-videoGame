@@ -7,7 +7,7 @@
 
 import Foundation
 
-// Main class of all Weapons
+/// Main class of all Weapons
 class Weapon {
     
     let damage: Int

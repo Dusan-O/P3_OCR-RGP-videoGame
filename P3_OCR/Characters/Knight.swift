@@ -7,7 +7,7 @@
 
 import Foundation
 
-// Knight class, heriting from Character class
+/// Knight class, heriting from Character class
 class Knight: Character {
     
     init() {

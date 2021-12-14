@@ -7,7 +7,7 @@
 
 import Foundation
 
-// Dwarf class, heriting from Character class
+///Dwarf class, heriting from Character class
 class Dwarf: Character {
     
     init() {

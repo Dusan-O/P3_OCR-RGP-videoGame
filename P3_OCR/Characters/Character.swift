@@ -7,10 +7,10 @@
 
 import Foundation
 
-// Character class, parent of all the Characters
+///Character class, parent of all the Characters
 class Character {
     
-    // Parameters for all characters
+    ///Parameters for all characters
     var life: Int
     let damage: Int
     var name: String
@@ -24,7 +24,7 @@ class Character {
         self.typeName = typeName
     }
     
-    // Choose the character name
+    ///Choose the character name
     func namedCharacter() {
         print("\nGive a name at your \(typeName) :\n")
         
@@ -33,7 +33,7 @@ class Character {
         }
     }
     
-    // Function search if the name of the character is a single
+    ///Function search if the name of the character is a single
     func validateCharacterName(arrayOfCharacters: [Character]) -> Bool {
         for character in arrayOfCharacters {
             if character.name == name {
@@ -46,13 +46,13 @@ class Character {
         return true
     }
     
-    // Openning the chest and give to the character a sword
+    ///Openning the chest and give to the character a sword
     func openChest(chest: Chest) {
         weapon = chest.weapon
         print("With my sword, my attacks points are \(damage + chest.weapon.damage)AP")
     }
     
-    // The character attack the target, we add the dammage of the sword if he have one
+    ///The character attack the target, we add the dammage of the sword if he have one
     func attack(target: Character) {
         print("\(name), attack \(target.name)")
         

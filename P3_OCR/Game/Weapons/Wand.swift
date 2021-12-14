@@ -7,10 +7,10 @@
 
 import Foundation
 
-// Wand for the Wizzaed if openChest())
+/// Wand for the Wizzaed if openChest())
 class Wand: Weapon {
     
-    // Wizzard needs to heal, let weaponHeal, and init his dommage at zero
+    /// Wizzard needs to heal, let weaponHeal, and init his dommage at zero
     let weaponHeal = 20
     
     init() {

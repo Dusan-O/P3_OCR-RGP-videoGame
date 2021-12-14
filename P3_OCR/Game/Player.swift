@@ -7,10 +7,10 @@
 
 import Foundation
 
-//2 players in the game
+///2 players in the game
 class Player {
     
-    // Each player have name, "Player 1" and "Player 2"
+    /// Each player have name, "Player 1" and "Player 2"
     let name: String
     
     // Array contains the characters of each team
@@ -20,9 +20,9 @@ class Player {
         self.name = name
     }
     
-    // Character's list and their caracteristics in the team
-    // The LP is reduced for simulation only - It can be changed whenever needed
-    // The DP is reduced for simulation only - It can be changed whenever needed
+    /// Character's list and their caracteristics in the team
+    /// The LP is reduced for simulation only - It can be changed whenever needed
+    /// The DP is reduced for simulation only - It can be changed whenever needed
     func charactersList() {
         print("\nYou have \(characters.count) character(s) in your team (\(characters.count)/3)\n")
         print(
@@ -34,7 +34,7 @@ class Player {
         )
     }
     
-    // First step for each player, function creates the character (fighter, giant, dwarf, wizzard) and names it
+    /// First step for each player, function creates the character (fighter, giant, dwarf, wizzard) and names it
     func chooseCharacter() {
         if let readline = readLine() {
             if let choice = Int(readline) {
@@ -89,7 +89,7 @@ class Player {
         }
     }
     
-    // Function creates the team of each player and shows it
+    /// Function creates the team of each player and shows it
     func chooseTeam() {
         let maxCharacter = 3
         
@@ -101,7 +101,7 @@ class Player {
         teamView()
     }
     
-    // Select a character in player's own team, then the selected character is return, and will fight an opponent character
+    /// Select a character in player's own team, then the selected character is return, and will fight an opponent character
     func selectCharacter(characters: [Character], selectedCharacter: Character?) -> Character {
         var personage = Character(name: "", damage: 0, life: 0, typeName: "")
         var addition = 1
@@ -136,7 +136,7 @@ class Player {
         return personage
     }
     
-    // Function checks if a character is dead and remove it from the Array if he is dead
+    /// Function checks if a character is dead and remove it from the Array if he is dead
     func checkTeamLife() {
         var incremention = 0
         

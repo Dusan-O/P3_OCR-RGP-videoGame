@@ -7,7 +7,7 @@
 
 import Foundation
 
-// Giant class, heriting from Character class
+/// Giant class, heriting from Character class
 class Giant: Character {
     
     init() {

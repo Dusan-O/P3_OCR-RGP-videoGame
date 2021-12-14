@@ -7,7 +7,7 @@
 
 import Foundation
 
-// Sword for all the other class
+/// Sword for all the other class
 class Sword: Weapon {
     
     init() {

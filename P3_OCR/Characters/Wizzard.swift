@@ -7,17 +7,17 @@
 
 import Foundation
 
-// Wizzard class, heriting from Character class
+/// Wizzard class, heriting from Character class
 class Wizzard: Character {
     
-    // Creation heal
+    /// Creation heal
     let heal: Int = 10
     
     init() {
         super.init(name: "Wizzard", damage: 0, life: 60, typeName: "Wizzard")
     }
     
-    // Writing the own version of the openChest, giving to the wizzard a Wand
+    /// Writing the own version of the openChest, giving to the wizzard a Wand
     override func openChest(chest: Chest) {
         weapon = chest.weapon
         
@@ -26,7 +26,7 @@ class Wizzard: Character {
         }
     }
     
-    // The wizzard will heal the target
+    /// The wizzard will heal the target
     override func attack(target: Character) {
         print("\(name), heals \(target.name)")
         

@@ -9,12 +9,6 @@ import Foundation
 
 class Game {
     
-    // Create player 1
-    var playerOne: Player
-    
-    // Create Player 2
-    var playerTwo: Player
-    
     init() {
         playerOne = Player(name: "Player 1")
         playerTwo = Player(name: "PLayer 2")
@@ -27,10 +21,20 @@ class Game {
         play()
     }
     
-    // Function game's rules
-    // The LP is reduced for simulation only - It can be changed whenever needed
-    // The DP is reduced for simulation only - It can be changed whenever needed
-    func introduce() {
+    
+    
+    /// Create player 1
+    private var playerOne: Player
+    
+    /// Create Player 2
+    private var playerTwo: Player
+    
+   
+    
+    /// Function game's rules
+    /// The LP is reduced for simulation only - It can be changed whenever needed
+    /// The DP is reduced for simulation only - It can be changed whenever needed
+    private func introduce() {
         print("⚔️🗡🪓🛡 Welcome in the World of the World's Game 🛡🪓🗡⚔️\n")
         print(
             "World of the World's Game is an RGP game where two player will fight in a bloody battle, the winner must kill ☠️ all the opponensts players.\n"
@@ -58,8 +62,8 @@ class Game {
         )
     }
     
-    // Function players creates teams
-    func setup() {
+    /// Function players creates teams
+    private func setup() {
         print("\(playerOne.name) choose your team with three characters")
         playerOne.chooseTeam()
         
@@ -67,8 +71,8 @@ class Game {
         playerTwo.chooseTeam()
     }
     
-    // First step / loop switch the players between turns
-    func play() {
+    /// First step / loop switch the players between turns
+    private func play() {
         print("\nGet your army ready, the ennemy is approaching, it's BATTLE TIME ⚔️⚔️⚔️⚔️⚔️ !!!!!!\n")
         
         while playerOne.characters.count != 0 || playerTwo.characters.count != 0 {
@@ -96,8 +100,8 @@ class Game {
         }
     }
     
-    // Function checks if a Player wins (if a player don't have any more character in his Array, he lost)
-    func checkWinner() -> Bool {
+    /// Function checks if a Player wins (if a player don't have any more character in his Array, he lost)
+    private func checkWinner() -> Bool {
         if playerTwo.characters.isEmpty {
             print("All Player's 2 characters are dead ☠️")
             print("PLAYER 1 WINS 🏆")
@@ -115,8 +119,8 @@ class Game {
         return false
     }
     
-    // Function creates a random number. If the players are lucky, his character open the mystery with the function openChest()
-    func checkChest(selectedCharacter: Character) {
+    /// Function creates a random number. If the players are lucky, his character open the mystery with the function openChest()
+    private func checkChest(selectedCharacter: Character) {
         let randomNumber = Int(arc4random_uniform(10))
         
         if randomNumber == 0 {

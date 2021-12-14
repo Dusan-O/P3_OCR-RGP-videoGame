@@ -7,10 +7,10 @@
 
 import Foundation
 
-// The chest will appear if the player is lucky. If the character is a wizzard, else he'll get a sword
+/// The chest will appear if the player is lucky. If the character is a wizzard, else he'll get a sword
 class Chest {
     
-    // Create var Weapon that contains the box or the Sword
+    /// Create var Weapon that contains the box or the Sword
     let weapon: Weapon
     
     init(selectedCharacter: Character) {
