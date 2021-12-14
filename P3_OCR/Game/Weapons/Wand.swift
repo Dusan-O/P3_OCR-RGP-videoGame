@@ -9,11 +9,11 @@ import Foundation
 
 // Wand for the Wizzaed if openChest())
 class Wand: Weapon {
-
-  // Wizzard needs to heal, var weaponHeal, and init his dommage at zero
-  var weaponHeal = 20
-
-  init() {
-    super.init(damage: 0)
-  }
+    
+    // Wizzard needs to heal, var weaponHeal, and init his dommage at zero
+    var weaponHeal = 20
+    
+    init() {
+        super.init(damage: 0)
+    }
 }

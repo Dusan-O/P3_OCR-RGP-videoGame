@@ -9,8 +9,8 @@ import Foundation
 
 // Dwarf class, heriting from Character class
 class Dwarf: Character {
-
-  init() {
-    super.init(name: "Dwarf", damage: 30, life: 40, typeName: "Dwarf")
-  }
+    
+    init() {
+        super.init(name: "Dwarf", damage: 30, life: 40, typeName: "Dwarf")
+    }
 }

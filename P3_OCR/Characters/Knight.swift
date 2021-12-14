@@ -9,8 +9,8 @@ import Foundation
 
 // Knight class, heriting from Character class
 class Knight: Character {
-
-  init() {
-    super.init(name: "Knight", damage: 25, life: 50, typeName: "Knight")
-  }
+    
+    init() {
+        super.init(name: "Knight", damage: 25, life: 50, typeName: "Knight")
+    }
 }

@@ -9,10 +9,10 @@ import Foundation
 
 // Main class of all Weapons
 class Weapon {
-
-  var damage: Int
-
-  init(damage: Int) {
-    self.damage = damage
-  }
+    
+    var damage: Int
+    
+    init(damage: Int) {
+        self.damage = damage
+    }
 }
