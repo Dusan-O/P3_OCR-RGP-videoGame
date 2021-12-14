@@ -10,6 +10,10 @@ import Foundation
 ///2 players in the game
 class Player {
     
+    // MARK: - INTERNAL
+    
+
+    
     /// Each player have name, "Player 1" and "Player 2"
     let name: String
     
@@ -20,66 +24,8 @@ class Player {
         self.name = name
     }
     
-    /// Character's list and their caracteristics in the team
-    /// The LP is reduced for simulation only - It can be changed whenever needed
-    /// The DP is reduced for simulation only - It can be changed whenever needed
-    func charactersList() {
-        print("\nYou have \(characters.count) character(s) in your team (\(characters.count)/3)\n")
-        print(
-            ""
-            + "\n1. Press 1 to choose the 🤺 Knight (50LP;25DP)"
-            + "\n2. Press 2 to choose the 🗿 Giant (60LP;15DP)"
-            + "\n3. Press 3 to choose the 🧝🏻 Dwarf (40LP;30DDP)"
-            + "\n4. Press 4 to choose the 🧙‍♂️ Wizzard (60LP;15HEALS)\n"
-        )
-    }
     
-    /// First step for each player, function creates the character (fighter, giant, dwarf, wizzard) and names it
-    func chooseCharacter() {
-        if let readline = readLine() {
-            if let choice = Int(readline) {
-                switch choice {
-                    
-                case 1:
-                    let knight = Knight()
-                    
-                    knight.namedCharacter()
-                    if knight.validateCharacterName(arrayOfCharacters: self.characters) == true {
-                        characters.append(knight)
-                    }
-                    
-                case 2:
-                    let giant = Giant()
-                    
-                    giant.namedCharacter()
-                    if giant.validateCharacterName(arrayOfCharacters: self.characters) == true {
-                        characters.append(giant)
-                    }
-                    
-                case 3:
-                    let dwarf = Dwarf()
-                    
-                    dwarf.namedCharacter()
-                    if dwarf.validateCharacterName(arrayOfCharacters: self.characters) == true {
-                        characters.append(dwarf)
-                    }
-                    
-                case 4:
-                    let wizzard = Wizzard()
-                    
-                    wizzard.namedCharacter()
-                    if wizzard.validateCharacterName(arrayOfCharacters: self.characters) == true {
-                        characters.append(wizzard)
-                    }
-                    
-                default:
-                    print("You made a mistake ❌ , try again\n")
-                }
-            }
-        }
-    }
-    
-    // Function shows the team of each player (name, typename, life and damages)
+    /// Function shows the team of each player (name, typename, life and damages)
     func teamView() {
         print("This is your team :")
         
@@ -89,12 +35,13 @@ class Player {
         }
     }
     
+    
     /// Function creates the team of each player and shows it
     func chooseTeam() {
         let maxCharacter = 3
         
         while characters.count < maxCharacter {
-            charactersList()
+            printChactersList()
             chooseCharacter()
         }
         
@@ -153,4 +100,68 @@ class Player {
             incremention += 1
         }
     }
+    
+    
+    
+    // MARK: - PRIVATE
+    
+    /// Character's list and their caracteristics in the team
+    /// The LP is reduced for simulation only - It can be changed whenever needed
+    /// The DP is reduced for simulation only - It can be changed whenever needed
+    private func printChactersList() {
+        print("\nYou have \(characters.count) character(s) in your team (\(characters.count)/3)\n")
+        print(
+            ""
+            + "\n1. Press 1 to choose the 🤺 Knight (50LP;25DP)"
+            + "\n2. Press 2 to choose the 🗿 Giant (60LP;15DP)"
+            + "\n3. Press 3 to choose the 🧝🏻 Dwarf (40LP;30DDP)"
+            + "\n4. Press 4 to choose the 🧙‍♂️ Wizzard (60LP;15HEALS)\n"
+        )
+    }
+    
+    /// First step for each player, function creates the character (fighter, giant, dwarf, wizzard) and names it
+    private func chooseCharacter() {
+        if let readline = readLine() {
+            if let choice = Int(readline) {
+                switch choice {
+                    
+                case 1:
+                    let knight = Knight()
+                    
+                    knight.namedCharacter()
+                    if knight.validateCharacterName(arrayOfCharacters: self.characters) == true {
+                        characters.append(knight)
+                    }
+                    
+                case 2:
+                    let giant = Giant()
+                    
+                    giant.namedCharacter()
+                    if giant.validateCharacterName(arrayOfCharacters: self.characters) == true {
+                        characters.append(giant)
+                    }
+                    
+                case 3:
+                    let dwarf = Dwarf()
+                    
+                    dwarf.namedCharacter()
+                    if dwarf.validateCharacterName(arrayOfCharacters: self.characters) == true {
+                        characters.append(dwarf)
+                    }
+                    
+                case 4:
+                    let wizzard = Wizzard()
+                    
+                    wizzard.namedCharacter()
+                    if wizzard.validateCharacterName(arrayOfCharacters: self.characters) == true {
+                        characters.append(wizzard)
+                    }
+                    
+                default:
+                    print("You made a mistake ❌ , try again\n")
+                }
+            }
+        }
+    }
+    
 }

@@ -9,6 +9,8 @@ import Foundation
 
 class Game {
     
+    // MARK: - INTERNAL
+    
     init() {
         playerOne = Player(name: "Player 1")
         playerTwo = Player(name: "PLayer 2")
@@ -22,6 +24,8 @@ class Game {
     }
     
     
+    
+    // MARK: - PRIVATE
     
     /// Create player 1
     private var playerOne: Player
@@ -120,7 +124,7 @@ class Game {
     }
     
     /// Function creates a random number. If the players are lucky, his character open the mystery with the function openChest()
-    private func checkChest(selectedCharacter: Character) {
+    func checkChest(selectedCharacter: Character) {
         let randomNumber = Int(arc4random_uniform(10))
         
         if randomNumber == 0 {
