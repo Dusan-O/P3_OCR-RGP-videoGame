@@ -11,7 +11,7 @@ import Foundation
 class Chest {
     
     // Create var Weapon that contains the box or the Sword
-    var weapon: Weapon
+    let weapon: Weapon
     
     init(selectedCharacter: Character) {
         if let selectedCharacter = selectedCharacter as? Wizzard {

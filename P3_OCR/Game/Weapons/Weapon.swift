@@ -10,7 +10,7 @@ import Foundation
 // Main class of all Weapons
 class Weapon {
     
-    var damage: Int
+    let damage: Int
     
     init(damage: Int) {
         self.damage = damage

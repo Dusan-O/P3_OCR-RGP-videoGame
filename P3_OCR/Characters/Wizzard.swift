@@ -11,7 +11,7 @@ import Foundation
 class Wizzard: Character {
     
     // Creation heal
-    var heal: Int = 10
+    let heal: Int = 10
     
     init() {
         super.init(name: "Wizzard", damage: 0, life: 60, typeName: "Wizzard")

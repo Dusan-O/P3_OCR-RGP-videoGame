@@ -12,9 +12,9 @@ class Character {
     
     // Parameters for all characters
     var life: Int
-    var damage: Int
+    let damage: Int
     var name: String
-    var typeName: String
+    let typeName: String
     var weapon: Weapon?
     
     init(name: String, damage: Int, life: Int, typeName: String) {
