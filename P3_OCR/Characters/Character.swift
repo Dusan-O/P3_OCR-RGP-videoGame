@@ -70,5 +70,9 @@ class Character {
         if target.isDead {
             print("\(target.name) don't have any Life Points... He's dead ☠️ !")
         }
+        
+        if target.life < 0 {
+            target.life = 0
+        }
     }
 }
