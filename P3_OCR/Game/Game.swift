@@ -116,15 +116,15 @@ class Game {
     /// Function checks if a Player wins (if a player don't have any more character in his Array, he lost)
     private func checkWinner() -> Bool {
         if playerTwo.isEliminated {
-            print("All Player's 2 characters are dead ☠️")
-            print("PLAYER 1 WINS 🏆")
+            print("All \(playerTwo.name)'s characters are dead ☠️")
+            print("\(playerOne.name.capitalized) WINS 🏆")
             
             return true
         }
         
         if playerOne.isEliminated {
-            print("All Player's 1 characters are dead ☠️")
-            print("PLAYER 2 WINS 🏆")
+            print("All \(playerOne.name)'s characters are dead ☠️")
+            print("\(playerTwo.name.capitalized) WINS 🏆")
             
             return true
         }
