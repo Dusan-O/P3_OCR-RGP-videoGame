@@ -110,15 +110,11 @@ class Game {
             
             print("The round is over, let's go to the next round")
         }
+        handleEndGame()
     }
     
     /// Function checks if a Player wins (if a player don't have any more character in his Array, he lost)
     private func checkWinner() -> Bool {
-        print()
-        print("-----------------------------END------------------------------------")
-        print("\nRound Number: \(roundNumber)")
-        playerOne.teamView()
-        playerTwo.teamView()
         if playerTwo.isEliminated {
             print("All Player's 2 characters are dead ☠️")
             print("PLAYER 1 WINS 🏆")
@@ -135,6 +131,14 @@ class Game {
         
         return false
     }
+    
+    private func handleEndGame() {
+            print()
+            print("-----------------------------END------------------------------------")
+            print("\nRound Number: \(roundNumber)")
+            playerOne.teamView()
+            playerTwo.teamView()
+        }
     
     /// Function creates a random number. If the players are lucky, his character open the mystery with the function openChest()
     func checkChest(selectedCharacter: Character) {
